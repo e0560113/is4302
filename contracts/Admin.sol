@@ -1,12 +1,10 @@
 // SPDX-License-Identifier: MIT 
 pragma solidity ^0.8.0;
 
-import "../ElectionContract.sol";
+import "./ElectionContract.sol";
 
 contract Admin {
     address public admin;
-    // string[] public electionRegions;
-    // mapping(string => ElectionContract) electionsByRegion;
     string[] public electionNames;
     mapping(string => ElectionContract) electionsList;
 
@@ -18,7 +16,6 @@ contract Admin {
     }
 
     constructor (address authorisedAdmin) public {
-        // require(authorisedAdmin != address(0), "Invalid admin address"); // is this necessary or assume that it is handled by frontend?
         admin = authorisedAdmin;
     }
 
@@ -47,18 +44,7 @@ contract Admin {
         electionNames.push(_electionName);
 
         emit ElectionStarted(_electionName, address(newElection));
-
-        // electionsByRegion[_region] = newElection;
-        // electionRegions.push(_region);
     }
-
-    // function getAllElectionRegions() public view returns (string[] memory) {
-    //     return electionRegions;
-    // }
-
-    // function getElectionByRegion(string memory _region) public view returns (E) {
-    //     return electionsByRegion[_region];
-    // }
 
     function getOngoingElections() public view returns (address[] memory) {
         address[] memory ongoing;

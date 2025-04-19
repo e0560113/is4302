@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "../Voter.sol";
-import "../ElectionContract.sol";
+import "./Voter.sol";
+import "./ElectionContract.sol";
 
 // Oracle contract that mimics Singpass verification and creates Voter contracts
 contract Oracle {
